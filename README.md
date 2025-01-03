@@ -1,5 +1,5 @@
 
-# Vite React アプリと AWS Lambda の統合
+# S3 と Lambda を使った Vite React アプリの構築
 
 このプロジェクトは、Vite で構築された React アプリケーションで、AWS Lambda 関数と統合してサーバーレスなバックエンド通信を実現します。
 
