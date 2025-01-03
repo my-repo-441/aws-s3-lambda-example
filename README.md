@@ -10,7 +10,6 @@
 - バックエンド処理用の AWS Lambda 関数
 - HTTP リクエスト処理用の API Gateway
 - セキュアな通信のためのクロスオリジンリソース共有（CORS）の設定
-- コード品質と一貫性を保つための ESLint 設定
 
 ## リポジトリ構成
 
@@ -121,15 +120,6 @@ const fetchData = async () => {
     console.error(error);
   }
 };
-```
-
-### テストと品質
-
-React アプリでリンティングを実行：
-
-```
-cd my-app
-npm run lint
 ```
 
 ### トラブルシューティング
