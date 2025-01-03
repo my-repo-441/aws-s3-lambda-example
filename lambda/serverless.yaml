@@ -1,0 +1,55 @@
+org: kuretom476946
+app: my-app-s3-lambda-hosting
+service: my-app-s3-lambda-hosting
+
+provider:
+  name: aws
+  runtime: python3.12
+  region: ap-northeast-1
+  httpApi:
+    cors:
+      allowedOrigins:
+        - http://my-app-s3-lambda-hosting.s3-website-ap-northeast-1.amazonaws.com
+      allowedMethods:
+        - GET
+        - POST
+        - OPTIONS
+        - PATCH
+        - PUT
+      allowedHeaders:
+        - Content-Type
+        - Authorization
+        - x-requested-with
+        - origin
+        - accept
+
+  environment:
+    PYTHONPATH: "/var/task/src:/opt/python"
+
+functions:
+  lambda_api:
+    handler: lambda_function.lambda_handler
+    timeout: 30
+    events:
+      - httpApi:
+          path: /lambda
+          method: get
+
+custom:
+  pythonRequirements:
+    dockerizePip: true
+    zip: true
+    layer: true
+    slim: true
+
+  serverless-offline:
+    port: 3000
+    environment:
+      PYTHONPATH: "./src"
+
+package:
+  exclude:
+    - node_modules/**
+    - README.md
+    - package-lock.json
+    - .git/**

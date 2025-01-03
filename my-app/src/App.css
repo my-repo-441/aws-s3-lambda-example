@@ -1,0 +1,45 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  display: block; /* `flex`を解除 */
+  background-color: #242424; /* 必要なら維持 */
+}
+
+.App {
+  text-align: center;
+  width: 100%; /* 横幅全体に拡張 */
+}
+
+.App-header {
+  background-color: #282c34;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer;
+  background-color: #61dafb;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #21a1f1;
+}
+
+p {
+  margin-top: 20px;
+  font-size: 18px;
+}

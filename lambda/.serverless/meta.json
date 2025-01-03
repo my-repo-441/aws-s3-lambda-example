@@ -1,0 +1,248 @@
+{
+  "/Users/keisuke/Documents/Python/tmp/lambda": {
+    "versionSfCore": null,
+    "versionFramework": "4.4.18",
+    "isWithinCompose": false,
+    "isCompose": false,
+    "composeOrgName": null,
+    "composeResolverProviders": {
+      "default-aws-credential-resolver": "<REDACTED>",
+      "sls": {
+        "instance": {
+          "credentials": "<REDACTED>",
+          "serviceConfigFile": {
+            "org": "kuretom476946",
+            "app": "my-app-s3-lambda-hosting",
+            "service": "my-app-s3-lambda-hosting",
+            "provider": {
+              "name": "aws",
+              "runtime": "python3.12",
+              "region": "ap-northeast-1",
+              "httpApi": {
+                "cors": {
+                  "allowedOrigins": [
+                    "http://my-app-s3-lambda-hosting.s3-website-ap-northeast-1.amazonaws.com"
+                  ],
+                  "allowedMethods": [
+                    "GET",
+                    "POST",
+                    "OPTIONS",
+                    "PATCH",
+                    "PUT"
+                  ],
+                  "allowedHeaders": [
+                    "Content-Type",
+                    "Authorization",
+                    "x-requested-with",
+                    "origin",
+                    "accept"
+                  ]
+                }
+              },
+              "environment": {
+                "PYTHONPATH": "/var/task/src:/opt/python"
+              },
+              "stage": "dev",
+              "versionFunctions": true
+            },
+            "functions": {
+              "lambda_api": {
+                "handler": "lambda_function.lambda_handler",
+                "timeout": 30,
+                "events": [
+                  {
+                    "httpApi": {
+                      "path": "/lambda",
+                      "method": "get"
+                    }
+                  }
+                ],
+                "name": "my-app-s3-lambda-hosting-dev-lambda_api"
+              }
+            },
+            "custom": {
+              "pythonRequirements": {
+                "dockerizePip": true,
+                "zip": true,
+                "layer": true,
+                "slim": true
+              },
+              "serverless-offline": {
+                "port": 3000,
+                "environment": {
+                  "PYTHONPATH": "./src"
+                }
+              }
+            },
+            "package": {
+              "exclude": [
+                "node_modules/**",
+                "README.md",
+                "package-lock.json",
+                ".git/**"
+              ],
+              "artifactsS3KeyDirname": "serverless/my-app-s3-lambda-hosting/dev/code-artifacts"
+            }
+          },
+          "configFileDirPath": "/Users/keisuke/Documents/Python/tmp/lambda",
+          "config": {
+            "type": "sls"
+          },
+          "options": {},
+          "stage": "dev",
+          "dashboard": null,
+          "logger": {
+            "namespace": "s:core:resolver:sls",
+            "prefix": null,
+            "prefixColor": null
+          },
+          "_credentialsPromise": "<REDACTED>"
+        },
+        "resolvers": {}
+      }
+    },
+    "composeServiceName": null,
+    "servicePath": "/Users/keisuke/Documents/Python/tmp/lambda",
+    "serviceConfigFileName": "serverless.yaml",
+    "service": {
+      "org": "kuretom476946",
+      "app": "my-app-s3-lambda-hosting",
+      "service": "my-app-s3-lambda-hosting",
+      "provider": {
+        "name": "aws",
+        "runtime": "python3.12",
+        "region": "ap-northeast-1",
+        "httpApi": {
+          "cors": {
+            "allowedOrigins": [
+              "http://my-app-s3-lambda-hosting.s3-website-ap-northeast-1.amazonaws.com"
+            ],
+            "allowedMethods": [
+              "GET",
+              "POST",
+              "OPTIONS",
+              "PATCH",
+              "PUT"
+            ],
+            "allowedHeaders": [
+              "Content-Type",
+              "Authorization",
+              "x-requested-with",
+              "origin",
+              "accept"
+            ]
+          }
+        },
+        "environment": {
+          "PYTHONPATH": "/var/task/src:/opt/python"
+        },
+        "stage": "dev",
+        "versionFunctions": true
+      },
+      "functions": {
+        "lambda_api": {
+          "handler": "lambda_function.lambda_handler",
+          "timeout": 30,
+          "events": [
+            {
+              "httpApi": {
+                "path": "/lambda",
+                "method": "get"
+              }
+            }
+          ],
+          "name": "my-app-s3-lambda-hosting-dev-lambda_api"
+        }
+      },
+      "custom": {
+        "pythonRequirements": {
+          "dockerizePip": true,
+          "zip": true,
+          "layer": true,
+          "slim": true
+        },
+        "serverless-offline": {
+          "port": 3000,
+          "environment": {
+            "PYTHONPATH": "./src"
+          }
+        }
+      },
+      "package": {
+        "exclude": [
+          "node_modules/**",
+          "README.md",
+          "package-lock.json",
+          ".git/**"
+        ],
+        "artifactsS3KeyDirname": "serverless/my-app-s3-lambda-hosting/dev/code-artifacts"
+      }
+    },
+    "serviceRawFile": "org: kuretom476946\napp: my-app-s3-lambda-hosting\nservice: my-app-s3-lambda-hosting\n\nprovider:\n  name: aws\n  runtime: python3.12\n  region: ap-northeast-1\n  httpApi:\n    cors:\n      allowedOrigins:\n        - http://my-app-s3-lambda-hosting.s3-website-ap-northeast-1.amazonaws.com\n      allowedMethods:\n        - GET\n        - POST\n        - OPTIONS\n        - PATCH\n        - PUT\n      allowedHeaders:\n        - Content-Type\n        - Authorization\n        - x-requested-with\n        - origin\n        - accept\n\n  environment:\n    PYTHONPATH: \"/var/task/src:/opt/python\"\n\nfunctions:\n  lambda_api:\n    handler: lambda_function.lambda_handler\n    timeout: 30\n    events:\n      - httpApi:\n          path: /lambda\n          method: get\n\ncustom:\n  pythonRequirements:\n    dockerizePip: true\n    zip: true\n    layer: true\n    slim: true\n\n  serverless-offline:\n    port: 3000\n    environment:\n      PYTHONPATH: \"./src\"\n\npackage:\n  exclude:\n    - node_modules/**\n    - README.md\n    - package-lock.json\n    - .git/**\n",
+    "command": [
+      "remove"
+    ],
+    "options": {},
+    "error": null,
+    "params": {},
+    "machineId": "45031e824c05e4c30a4f261cc8e7936d",
+    "stage": "dev",
+    "accessKeyV2": "<REDACTED>",
+    "accessKeyV1": "<REDACTED>",
+    "orgId": "00481a91-bcc0-487c-8393-c11ee83e3ad9",
+    "orgName": "kuretom476946",
+    "userId": "Dclccc7rFksQXYFCQk",
+    "dashboard": {
+      "isEnabledForService": true,
+      "requiredAuthentication": false,
+      "orgFeaturesInUse": {
+        "providers": false,
+        "monitoring": false
+      },
+      "orgObservabilityIntegrations": null,
+      "serviceAppId": "KykdqKlzTr74K1Wt7y",
+      "serviceProvider": null,
+      "instanceParameters": null
+    },
+    "userName": "kuretom476946",
+    "subscription": null,
+    "userEmail": "yoshii.rabbit.441yk@gmail.com",
+    "serviceProviderAwsRegion": "ap-northeast-1",
+    "serviceProviderAwsCredentials": "<REDACTED>",
+    "serviceProviderAwsAccountId": "726788541449",
+    "projectType": "traditional",
+    "versionSf": "4.4.18",
+    "serviceProviderAwsCfStackName": "my-app-s3-lambda-hosting-dev",
+    "serviceUniqueId": "arn:aws:cloudformation:ap-northeast-1:726788541449:stack/my-app-s3-lambda-hosting-dev/ae5291b0-c99d-11ef-8fd3-0eda40ee1645",
+    "serviceProviderAwsCfStackId": "arn:aws:cloudformation:ap-northeast-1:726788541449:stack/my-app-s3-lambda-hosting-dev/ae5291b0-c99d-11ef-8fd3-0eda40ee1645",
+    "serviceProviderAwsCfStackCreated": "2025-01-03T06:40:54.497Z",
+    "serviceProviderAwsCfStackUpdated": null,
+    "serviceProviderAwsCfStackStatus": "CREATE_COMPLETE",
+    "serviceProviderAwsCfStackOutputs": [
+      {
+        "OutputKey": "LambdaUnderscoreapiLambdaFunctionQualifiedArn",
+        "OutputValue": "arn:aws:lambda:ap-northeast-1:726788541449:function:my-app-s3-lambda-hosting-dev-lambda_api:1",
+        "Description": "Current Lambda function version",
+        "ExportName": "sls-my-app-s3-lambda-hosting-dev-LambdaUnderscoreapiLambdaFunctionQualifiedArn"
+      },
+      {
+        "OutputKey": "HttpApiId",
+        "OutputValue": "cz6tlba49h",
+        "Description": "Id of the HTTP API",
+        "ExportName": "sls-my-app-s3-lambda-hosting-dev-HttpApiId"
+      },
+      {
+        "OutputKey": "ServerlessDeploymentBucketName",
+        "OutputValue": "serverless-framework-deployments-ap-northeast-1-47cb9f6c-ebc3",
+        "ExportName": "sls-my-app-s3-lambda-hosting-dev-ServerlessDeploymentBucketName"
+      },
+      {
+        "OutputKey": "HttpApiUrl",
+        "OutputValue": "https://cz6tlba49h.execute-api.ap-northeast-1.amazonaws.com",
+        "Description": "URL of the HTTP API",
+        "ExportName": "sls-my-app-s3-lambda-hosting-dev-HttpApiUrl"
+      }
+    ],
+    "integrations": {}
+  }
+}
