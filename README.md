@@ -66,12 +66,6 @@
    npm install
    ```
 
-3. Lambda 関数の依存関係をインストール：
-   ```
-   cd ../lambda
-   pip install -r requirements.txt
-   ```
-
 ### 開始方法
 
 ローカルで React アプリを実行するには：
